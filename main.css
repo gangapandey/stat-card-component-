@@ -1,0 +1,187 @@
+/*Inter 400*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* Inter 700 */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+/* Lexend Deca 400 */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+
+
+/*-- Custom properties --*/
+:root {
+    --main-background: hsl(233, 47%, 7%);
+    --card-background: hsl(244, 38%, 16%);
+    --accent: hsl(277, 64%, 61%);
+    /* main heading, stats */
+    --white: hsl(0, 0%, 100%);
+    /* main paragraph */
+    --transparent-white-p: hsla(0, 0%, 100%, 0.6);
+    /* stat headings */
+    --transparent-white-h: hsla(0, 0%, 100%, 0.75);
+    --gray: hsl(0, 0%, 95%);
+    --font-Inter: "Inter";
+    --font400: "Lexend Deca";
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-background);
+}
+
+h1 {
+    font-family: var(--font400);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--white);
+}
+
+/*------ inisights color target ----- */
+span {
+    color: var(--accent);
+}
+
+/*--Card style--*/
+.desc {
+    font-family: var(--font-Inter);
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: var(--transparent-white-p);
+    margin-bottom: 5rem;
+    margin-top: 3rem;
+    line-height: 1.6;
+}
+
+
+/*-- Stats section --*/
+.cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;  /*-- Wrap to rows when screen re-sized --*/
+    width: 80%;
+}
+
+.card-title {
+    font-family: var(--font-Inter);
+    font-weight: 700;
+    color: var(--white);
+    font-size: 2.2rem;
+    margin-bottom: 0.2rem;
+}
+
+.card-descp {
+    text-transform: uppercase;
+    font-family: var(--font-Inter);
+    font-weight: 400;
+    color: var(--transparent-white-p);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+/*-- Grid  --*/
+.wrapper {
+    display: grid;
+    /*-- Two equal columns --*/
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    position: relative;
+    width: 70%;
+    /* Centre content on page*/
+    top: 10rem;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.col-one {
+    background-color: var(--card-background);
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 5rem;
+}
+
+.col-two {
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    /* Add overlay */
+    background: hsl(277, 100%, 45%);
+    overflow: hidden;
+    height: 100%;
+}
+
+img {
+    object-fit: cover;
+    /* Use cover to fill container with image */
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    opacity: 0.6;
+}
+
+
+/*-- Responsive--*/
+@media screen and (max-width: 1000px) {
+    .wrapper {
+        display: grid;
+        /* collapse to rows */
+        grid-template-columns: none;
+        position: relative;
+        width: 70%;
+        height: 50%;
+        /* Centre content on page*/
+        top: 4rem;
+    }
+    body {
+        padding-bottom: 10rem;
+    }
+    .col-two {
+        border-top-left-radius: 1rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 100%;
+        height: 100%;
+        /* Reverse grid order */
+        grid-row: 1;
+    }
+    .col-one {
+        text-align: center;
+        border-top-left-radius: 0;
+        border-bottom-right-radius: 1rem;
+    }
+    .card {
+        width: 0;
+    }
+    img {
+        border-bottom-right-radius: 0;
+    }
+
+
+}
+
+/*-- Allign stat items in rows --*/
+@media screen and (max-width: 600px) {
+    .cards {
+        display: block;
+        flex-direction: row;
+        /* Wrap to rows when screen re-sized */
+        margin-left: 33%;
+        margin-top: -2.5rem;
+        line-height: 1.8;
+    }
+}
+
+
+
+
+
